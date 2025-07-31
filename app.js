@@ -1,10 +1,14 @@
+require("dotenv").config();
 const express = require("express");
 
 // express app
 const app = express();
 
 // listen to port
-app.listen(8080);
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`App is live. Listening on port ${PORT}.`);
+});
 
 // routing
 app.get("/", (req, res) => {
